@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وطن AI - الثورة الذكية للحكومة الموحدة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0A1A2F;
+            --secondary: #0066CC;
+            --accent: #00D4AA;
+            --accent-dark: #00B894;
+            --gold: #FFD700;
+            --light: #F5F7FA;
+            --dark: #0A0A0A;
+            --gradient: linear-gradient(135deg, #0A1A2F 0%, #003366 50%, #0066CC 100%);
+            --gradient-gold: linear-gradient(135deg, #FFD700 0%, #FFAA00 100%);
+            --gradient-accent: linear-gradient(135deg, #00D4AA 0%, #00B894 100%);
+            --gradient-hero: linear-gradient(135deg, #0A1A2F 0%, #003366 30%, #0066CC 70%, #00D4AA 100%);
+            --shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.2);
+            --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.7;
+            color: var(--light);
+            background-color: var(--primary);
+            overflow-x: hidden;
+        }
+        
+        body.english {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: ltr;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: rgba(10, 26, 47, 0.95);
+            color: white;
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-scrolled {
+            padding: 0.8rem 0;
+            background: rgba(10, 26, 47, 0.98);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .logo-icon {
+            margin-left: 12px;
+            font-size: 2.2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links li {
+            margin: 0 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-accent);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-right: 20px;
+        }
+        
+        .language-switcher:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .language-switcher i {
+            margin-left: 8px;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+        
+        .language-text {
+            font-weight: 600;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-hero);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            padding: 120px 0 80px;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 102, 204, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        
+        .hero-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-logo {
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 1s ease 0.3s;
+        }
+        
+        .hero-logo.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .logo-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: 0 auto;
+        }
+        
+        .logo-outer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 
+                0 0 0 1px rgba(0, 212, 170, 0.2),
+                0 0 80px rgba(0, 212, 170, 0.3);
+            animation: rotate 30s linear infinite;
+        }
+        
+        .logo-middle {
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 
+                0 0 0 1px rgba(0, 102, 204, 0.3),
+                0 0 50px rgba(0, 102, 204, 0.4);
+            animation: rotate-reverse 20s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-core {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+            box-shadow: 0 0 50px rgba(0, 212, 170, 0.7);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+        
+        .logo-core::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+            transform: rotate(45deg);
+            animation: shine 4s infinite;
+        }
+        
+        .logo-particle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0;
+            animation: float 8s infinite linear;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes rotate-reverse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) scale(0.5); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(50px) scale(1); opacity: 0; }
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            font-weight: 900;
+            background: linear-gradient(to right, #FFFFFF, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease 0.6s;
+        }
+        
+        .hero h1.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease 0.9s;
+        }
+        
+        .hero p.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-buttons {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease 1.2s;
+        }
+        
+        .hero-buttons.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--gradient-accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.4);
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 212, 170, 0.6);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            margin-right: 20px;
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+        
+        .section {
+            padding: 150px 0;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .features {
+            background: var(--light);
+        }
+        
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%230066CC" fill-opacity="0.03" d="M0,128L48,138.7C96,149,192,171,288,186.7C384,203,480,213,576,202.7C672,192,768,160,864,138.7C960,117,1056,107,1152,112C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease 0.3s;
+        }
+        
+        .section-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title h2 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            font-weight: 900;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 5px;
+            background: var(--gradient-accent);
+            border-radius: 3px;
+        }
+        
+        .section-title p {
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-accent);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .feature-icon {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+        }
+        
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .stats {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+        
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-item {
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            display: block;
+            background: linear-gradient(to right, #FFFFFF, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+        
+        .how-it-works {
+            background: var(--light);
+        }
+        
+        .how-it-works::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%2300D4AA" fill-opacity="0.03" d="M0,128L48,138.7C96,149,192,171,288,186.7C384,203,480,213,576,202.7C672,192,768,160,864,138.7C960,117,1056,107,1152,112C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 70px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .step-number {
+            width: 90px;
+            height: 90px;
+            background: var(--gradient-accent);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.4);
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 45px;
+            right: -20px;
+            width: calc(100% - 40px);
+            height: 3px;
+            background: var(--gradient-accent);
+            opacity: 0.3;
+        }
+        
+        .step h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        
+        .step p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .pricing {
+            background: var(--gradient);
+            position: relative;
+        }
+        
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 70% 30%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, rgba(0, 102, 204, 0.1) 0%, transparent 50%);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .pricing-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        
+        .pricing-card.featured {
+            transform: scale(1.05);
+            z-index: 3;
+            border: 1px solid rgba(0, 212, 170, 0.5);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-15px);
+        }
+        
+        .pricing-header {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .pricing-card.featured .pricing-header {
+            background: var(--gradient-accent);
+            color: var(--primary);
+        }
+        
+        .pricing-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+        
+        .pricing-price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            display: block;
+            line-height: 1;
+        }
+        
+        .pricing-period {
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+        
+        .pricing-features {
+            padding: 40px 30px;
+        }
+        
+        .pricing-features ul {
+            list-style: none;
+        }
+        
+        .pricing-features li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-right: 35px;
+            font-size: 1.1rem;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .pricing-footer {
+            padding: 0 30px 40px;
+            text-align: center;
+        }
+        
+        .contact {
+            background: var(--light);
+            position: relative;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%230A1A2F" fill-opacity="0.03" d="M0,128L48,138.7C96,149,192,171,288,186.7C384,203,480,213,576,202.7C672,192,768,160,864,138.7C960,117,1056,107,1152,112C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .contact-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-top: 5px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+        
+        .contact-item p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .contact-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 18px 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: 'Tajawal', sans-serif;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            background: #f9f9f9;
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+            background: white;
+        }
+        
+        textarea.form-control {
+            min-height: 180px;
+            resize: vertical;
+        }
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 10%, rgba(0, 212, 170, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 90%, rgba(0, 102, 204, 0.05) 0%, transparent 50%);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-col {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .footer-col.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .footer-col h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 800;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(-5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.3rem;
+        }
+        
+        .social-link:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 1rem;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .copyright.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+        
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.8rem;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .logo-container {
+                width: 260px;
+                height: 260px;
+            }
+            
+            .logo-core {
+                width: 110px;
+                height: 110px;
+                font-size: 1.7rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.8rem;
+            }
+            
+            .step:not(:last-child)::after {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+            
+            .btn-outline {
+                margin-right: 0;
+                margin-bottom: 20px;
+                display: block;
+                width: 100%;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+            }
+            
+            .logo-container {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .logo-core {
+                width: 90px;
+                height: 90px;
+                font-size: 1.4rem;
+            }
+            
+            .features-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .language-switcher {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon">🧠</span>
+                    <span>وطن AI</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#how-it-works">كيف تعمل</a></li>
+                    <li><a href="#pricing">الباقات</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                    <li>
+                        <div class="language-switcher" id="languageSwitcher">
+                            <i class="fas fa-globe"></i>
+                            <span class="language-text">English</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="floating-elements" id="floatingElements"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <div class="logo-container">
+                        <div class="logo-outer"></div>
+                        <div class="logo-middle"></div>
+                        <div class="logo-core">
+                            وطن AI
+                        </div>
+                    </div>
+                </div>
+                <h1>ثورة الذكاء الاصطناعي في حكومتك الموحدة</h1>
+                <p>منصة "وطن AI" توحد جميع أجهزة الدولة في نظام ذكي متكامل، يحول البيانات إلى قرارات استباقية ويوفر خدمات مخصصة لكل مواطن.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-outline">اطلب عرضًا تجريبيًا</a>
+                    <a href="#features" class="btn">استكشف المميزات</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>مميزات منصة وطن AI</h2>
+                <p>اكتشف القوة التحويلية لمنصتنا الذكية التي تعيد تعريف مفهوم الحكومة الرقمية</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>ذكاء اصطناعي استباقي</h3>
+                    <p>يتنبأ المنصة بالمشاكل والاحتياجات قبل وقوعها، مما يمكن الحكومة من اتخاذ إجراءات استباقية.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>تكامل شامل</h3>
+                    <p>يربط جميع الوزارات والهيئات الحكومية في نظام بيئي رقمي موحد، يزيل العوائق بين القطاعات.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>تحليلات متقدمة</h3>
+                    <p>يوفر رؤى عميقة قائمة على البيانات لتحسين الخدمات واتخاذ قرارات أكثر ذكاءً.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>كفاءة غير مسبوقة</h3>
+                    <p>يقلل الوقت والجهد المطلوبين للمعاملات الحكومية بنسبة تصل إلى 70%.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>أمان من الطراز الأول</h3>
+                    <p>يضمن أعلى معايير الأمان السيبراني لحماية البيانات الحساسة والبنية التحتية الوطنية.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>قابلية التوسع</h3>
+                    <p>مصمم لينمو ويتكيف مع الاحتياجات المتغيرة للحكومة والمواطنين على المدى الطويل.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section stats" id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="stat1">0</span>
+                    <span class="stat-label">تحسن في الكفاءة</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="stat2">0</span>
+                    <span class="stat-label">توفير في الوقت</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="stat3">0</span>
+                    <span class="stat-label">رضا المواطنين</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="stat4">0</span>
+                    <span class="stat-label">عائد استثمار</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>كيف تعمل المنصة</h2>
+                <p>اكتشف العملية البسيطة والفعالة التي تحول بها منصة وطن AI حكومتك إلى كيان ذكي ومتكامل</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>التقييم والتخطيط</h3>
+                    <p>نقوم بتحليل البنية التحتية الحالية وتحديد احتياجات التكامل والتحول الرقمي.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>التنفيذ والتكامل</h3>
+                    <p>نقوم ببناء وربط جميع الأنظمة الحكومية في منصة موحدة باستخدام أحدث التقنيات.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>التدريب والتمكين</h3>
+                    <p>نقدم برامج تدريبية شاملة لتمكين الموظفين من استخدام المنصة بفعالية.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>الدعم والتطوير</h3>
+                    <p>نوفر دعماً مستمراً وتحديثات دورية لضمان الأداء الأمثل للمنصة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>باقات الخدمة</h2>
+                <p>اختر الباقة التي تناسب احتياجات حكومتك وميزانيتها</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">الباقة الأساسية</h3>
+                        <div class="pricing-price">5M <span class="pricing-period">/سنوياً</span></div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li class="pricing-feature-ar">تكامل 3 وزارات رئيسية</li>
+                            <li class="pricing-feature-ar">نظام ذكاء اصطناعي أساسي</li>
+                            <li class="pricing-feature-ar">لوحة تحكم موحدة</li>
+                            <li class="pricing-feature-ar">دعم فني 24/7</li>
+                            <li class="pricing-feature-ar">تقارير أداء شهرية</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="#contact" class="btn btn-outline">اطلب الباقة</a>
+                    </div>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">الباقة المتقدمة</h3>
+                        <div class="pricing-price">15M <span class="pricing-period">/سنوياً</span></div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li class="pricing-feature-ar">تكامل 7 وزارات رئيسية</li>
+                            <li class="pricing-feature-ar">نظام ذكاء اصطناعي متقدم</li>
+                            <li class="pricing-feature-ar">تحليلات تنبؤية شاملة</li>
+                            <li class="pricing-feature-ar">تطبيقات جوال مخصصة</li>
+                            <li class="pricing-feature-ar">تدريب متخصص للموظفين</li>
+                            <li class="pricing-feature-ar">تحديثات دورية</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="#contact" class="btn">اطلب الباقة</a>
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">الباقة الشاملة</h3>
+                        <div class="pricing-price">30M <span class="pricing-period">/سنوياً</span></div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li class="pricing-feature-ar">تكامل جميع الوزارات</li>
+                            <li class="pricing-feature-ar">نظام ذكاء اصطناعي شامل</li>
+                            <li class="pricing-feature-ar">منصة مواطن ذكية</li>
+                            <li class="pricing-feature-ar">نظام إدارة الأزمات</li>
+                            <li class="pricing-feature-ar">تحليلات في الوقت الفعلي</li>
+                            <li class="pricing-feature-ar">دعم وتطوير مخصص</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="#contact" class="btn btn-outline">اطلب الباقة</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>اتصل بنا</h2>
+                <p>تواصل مع فريقنا لمعرفة المزيد عن كيف يمكن لوطن AI تحويل حكومتك</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h3>عنواننا</h3>
+                            <p>دبي، الإمارات العربية المتحدة</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h3>هاتفنا</h3>
+                            <p>+971 50 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h3>بريدنا الإلكتروني</h3>
+                            <p>info@watan-ai.ae</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h3>ساعات العمل</h3>
+                            <p>الأحد - الخميس: 8 ص - 6 م</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="الاسم الكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="البريد الإلكتروني" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="الجهة/الوزارة">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>اختر الباقة المطلوبة</option>
+                                <option value="basic">الباقة الأساسية</option>
+                                <option value="advanced">الباقة المتقدمة</option>
+                                <option value="premium">الباقة الشاملة</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="رسالتك" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">إرسال الطلب</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>وطن AI</h3>
+                    <p>منصة الذكاء الاصطناعي الرائدة لتحويل الحكومات إلى كيانات ذكية ومتكاملة تخدم المواطن بأعلى كفاءة.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#features">المميزات</a></li>
+                        <li><a href="#how-it-works">كيف تعمل</a></li>
+                        <li><a href="#pricing">الباقات</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>الخدمات</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">التحول الرقمي</a></li>
+                        <li><a href="#">الذكاء الاصطناعي</a></li>
+                        <li><a href="#">تحليل البيانات</a></li>
+                        <li><a href="#">التكامل الحكومي</a></li>
+                        <li><a href="#">الاستشارات التقنية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>النشرة البريدية</h3>
+                    <p>اشترك في نشرتنا البريدية لتصلك آخر التحديثات والعروض.</p>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="بريدك الإلكتروني">
+                        <button class="btn" style="width: 100%; margin-top: 10px;">اشتراك</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2025 وطن AI. تم التصميم والبرمجة بأيدي إماراتية.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target + '%';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start) + '%';
+                }
+            }, 16);
+        }
+
+        function checkCounters() {
+            const stat1 = document.getElementById('stat1');
+            const stat2 = document.getElementById('stat2');
+            const stat3 = document.getElementById('stat3');
+            const stat4 = document.getElementById('stat4');
+            
+            const rect = stat1.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                animateCounter(stat1, 40, 2000);
+                animateCounter(stat2, 30, 2000);
+                animateCounter(stat3, 95, 2000);
+                animateCounter(stat4, 300, 2000);
+                window.removeEventListener('scroll', checkCounters);
+            }
+        }
+
+        window.addEventListener('scroll', checkCounters);
+
+        window.addEventListener('load', function() {
+            const stat1 = document.getElementById('stat1');
+            const rect = stat1.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                animateCounter(stat1, 40, 2000);
+                animateCounter(stat2, 30, 2000);
+                animateCounter(stat3, 95, 2000);
+                animateCounter(stat4, 300, 2000);
+                window.removeEventListener('scroll', checkCounters);
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('شكراً لتواصلكم! سنعود إليكم في أقرب وقت ممكن.');
+            contactForm.reset();
+        });
+
+        const floatingElements = document.getElementById('floatingElements');
+        for (let i = 0; i < 15; i++) {
+            const element = document.createElement('div');
+            element.className = 'floating-element';
+            const size = Math.random() * 30 + 10;
+            element.style.width = `${size}px`;
+            element.style.height = `${size}px`;
+            element.style.top = `${Math.random() * 100}%`;
+            element.style.right = `${Math.random() * 100}%`;
+            element.style.animationDelay = `${Math.random() * 15}s`;
+            element.style.background = `rgba(255, 255, 255, ${Math.random() * 0.1 + 0.05})`;
+            floatingElements.appendChild(element);
+        }
+
+        const logoContainer = document.querySelector('.logo-container');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'logo-particle';
+            const size = Math.random() * 6 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.right = `${Math.random() * 100}%`;
+            particle.style.background = `hsl(${Math.random() * 60 + 150}, 100%, 50%)`;
+            particle.style.animationDelay = `${Math.random() * 8}s`;
+            logoContainer.appendChild(particle);
+        }
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section, .section-title, .feature-card, .stat-item, .step, .pricing-card, .contact-item, .contact-form, .footer-col, .copyright').forEach(el => {
+            observer.observe(el);
+        });
+
+        const heroContent = document.querySelector('.hero-content');
+        const heroLogo = document.querySelector('.hero-logo');
+        const heroH1 = document.querySelector('.hero h1');
+        const heroP = document.querySelector('.hero p');
+        const heroButtons = document.querySelector('.hero-buttons');
+
+        setTimeout(() => {
+            heroContent.classList.add('visible');
+        }, 300);
+
+        setTimeout(() => {
+            heroLogo.classList.add('visible');
+        }, 600);
+
+        setTimeout(() => {
+            heroH1.classList.add('visible');
+        }, 900);
+
+        setTimeout(() => {
+            heroP.classList.add('visible');
+        }, 1200);
+
+        setTimeout(() => {
+            heroButtons.classList.add('visible');
+        }, 1500);
+
+        const languageSwitcher = document.getElementById('languageSwitcher');
+        let isEnglish = false;
+        
+        languageSwitcher.addEventListener('click', function() {
+            isEnglish = !isEnglish;
+            
+            if (isEnglish) {
+                document.body.classList.add('english');
+                document.querySelector('.language-text').textContent = 'العربية';
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', 'en');
+                
+                document.querySelector('title').textContent = 'Watan AI - The Smart Revolution for Unified Government';
+                document.querySelector('.hero h1').textContent = 'The AI Revolution in Your Unified Government';
+                document.querySelector('.hero p').textContent = 'The "Watan AI" platform unifies all state entities in an integrated smart system, transforming data into proactive decisions and providing customized services for every citizen.';
+                document.querySelector('.btn-outline').textContent = 'Request a Demo';
+                document.querySelector('.hero-buttons .btn:last-child').textContent = 'Explore Features';
+                
+                document.querySelector('.section-title h2').textContent = 'Watan AI Platform Features';
+                document.querySelector('.section-title p').textContent = 'Discover the transformative power of our smart platform that redefines the concept of digital government';
+                
+                const featureTitles = document.querySelectorAll('.feature-card h3');
+                featureTitles[0].textContent = 'Proactive AI';
+                featureTitles[1].textContent = 'Comprehensive Integration';
+                featureTitles[2].textContent = 'Advanced Analytics';
+                featureTitles[3].textContent = 'Unprecedented Efficiency';
+                featureTitles[4].textContent = 'Top-Tier Security';
+                featureTitles[5].textContent = 'Scalability';
+                
+                const featureTexts = document.querySelectorAll('.feature-card p');
+                featureTexts[0].textContent = 'The platform predicts problems and needs before they occur, enabling the government to take proactive measures.';
+                featureTexts[1].textContent = 'Connects all ministries and government entities in a unified digital ecosystem, removing barriers between sectors.';
+                featureTexts[2].textContent = 'Provides deep data-driven insights to improve services and make smarter decisions.';
+                featureTexts[3].textContent = 'Reduces the time and effort required for government transactions by up to 70%.';
+                featureTexts[4].textContent = 'Ensures the highest standards of cybersecurity to protect sensitive data and national infrastructure.';
+                featureTexts[5].textContent = 'Designed to grow and adapt to the changing needs of government and citizens in the long term.';
+                
+                document.querySelectorAll('.stat-label')[0].textContent = 'Efficiency Improvement';
+                document.querySelectorAll('.stat-label')[1].textContent = 'Time Saving';
+                document.querySelectorAll('.stat-label')[2].textContent = 'Citizen Satisfaction';
+                document.querySelectorAll('.stat-label')[3].textContent = 'Return on Investment';
+                
+                document.querySelector('#how-it-works .section-title h2').textContent = 'How the Platform Works';
+                document.querySelector('#how-it-works .section-title p').textContent = 'Discover the simple and effective process through which Watan AI transforms your government into a smart, integrated entity';
+                
+                const stepTitles = document.querySelectorAll('.step h3');
+                stepTitles[0].textContent = 'Assessment & Planning';
+                stepTitles[1].textContent = 'Implementation & Integration';
+                stepTitles[2].textContent = 'Training & Empowerment';
+                stepTitles[3].textContent = 'Support & Development';
+                
+                const stepTexts = document.querySelectorAll('.step p');
+                stepTexts[0].textContent = 'We analyze the current infrastructure and identify integration and digital transformation needs.';
+                stepTexts[1].textContent = 'We build and connect all government systems into a unified platform using the latest technologies.';
+                stepTexts[2].textContent = 'We provide comprehensive training programs to enable employees to use the platform effectively.';
+                stepTexts[3].textContent = 'We provide continuous support and periodic updates to ensure optimal platform performance.';
+                
+                document.querySelector('#pricing .section-title h2').textContent = 'Service Packages';
+                document.querySelector('#pricing .section-title p').textContent = 'Choose the package that suits your government needs and budget';
+                
+                document.querySelectorAll('.pricing-title')[0].textContent = 'Basic Package';
+                document.querySelectorAll('.pricing-title')[1].textContent = 'Advanced Package';
+                document.querySelectorAll('.pricing-title')[2].textContent = 'Premium Package';
+                
+                document.querySelectorAll('.pricing-period')[0].textContent = '/yearly';
+                document.querySelectorAll('.pricing-period')[1].textContent = '/yearly';
+                document.querySelectorAll('.pricing-period')[2].textContent = '/yearly';
+                
+                const pricingFeatures = document.querySelectorAll('.pricing-feature-ar');
+                pricingFeatures[0].textContent = 'Integration of 3 main ministries';
+                pricingFeatures[1].textContent = 'Basic AI system';
+                pricingFeatures[2].textContent = 'Unified dashboard';
+                pricingFeatures[3].textContent = '24/7 technical support';
+                pricingFeatures[4].textContent = 'Monthly performance reports';
+                pricingFeatures[5].textContent = 'Integration of 7 main ministries';
+                pricingFeatures[6].textContent = 'Advanced AI system';
+                pricingFeatures[7].textContent = 'Comprehensive predictive analytics';
+                pricingFeatures[8].textContent = 'Custom mobile applications';
+                pricingFeatures[9].textContent = 'Specialized employee training';
+                pricingFeatures[10].textContent = 'Periodic updates';
+                pricingFeatures[11].textContent = 'Integration of all ministries';
+                pricingFeatures[12].textContent = 'Comprehensive AI system';
+                pricingFeatures[13].textContent = 'Smart citizen platform';
+                pricingFeatures[14].textContent = 'Crisis management system';
+                pricingFeatures[15].textContent = 'Real-time analytics';
+                pricingFeatures[16].textContent = 'Custom support and development';
+                
+                document.querySelectorAll('.pricing-footer .btn')[0].textContent = 'Request Package';
+                document.querySelectorAll('.pricing-footer .btn')[1].textContent = 'Request Package';
+                document.querySelectorAll('.pricing-footer .btn')[2].textContent = 'Request Package';
+                
+                document.querySelector('#contact .section-title h2').textContent = 'Contact Us';
+                document.querySelector('#contact .section-title p').textContent = 'Contact our team to learn more about how Watan AI can transform your government';
+                
+                document.querySelectorAll('.contact-item h3')[0].textContent = 'Our Address';
+                document.querySelectorAll('.contact-item h3')[1].textContent = 'Our Phone';
+                document.querySelectorAll('.contact-item h3')[2].textContent = 'Our Email';
+                document.querySelectorAll('.contact-item h3')[3].textContent = 'Working Hours';
+                
+                document.querySelectorAll('.contact-item p')[0].textContent = 'Dubai, United Arab Emirates';
+                document.querySelectorAll('.contact-item p')[3].textContent = 'Sunday - Thursday: 8 AM - 6 PM';
+                
+                document.querySelector('.form-control[placeholder="الاسم الكامل"]').placeholder = 'Full Name';
+                document.querySelector('.form-control[placeholder="البريد الإلكتروني"]').placeholder = 'Email Address';
+                document.querySelector('.form-control[placeholder="الجهة/الوزارة"]').placeholder = 'Organization/Ministry';
+                document.querySelector('.form-control[placeholder="رسالتك"]').placeholder = 'Your Message';
+                document.querySelector('select.form-control option[selected]').textContent = 'Select Required Package';
+                document.querySelector('select.form-control option[value="basic"]').textContent = 'Basic Package';
+                document.querySelector('select.form-control option[value="advanced"]').textContent = 'Advanced Package';
+                document.querySelector('select.form-control option[value="premium"]').textContent = 'Premium Package';
+                document.querySelector('#contactForm button[type="submit"]').textContent = 'Send Request';
+                
+                document.querySelectorAll('.footer-col h3')[0].textContent = 'Watan AI';
+                document.querySelectorAll('.footer-col h3')[1].textContent = 'Quick Links';
+                document.querySelectorAll('.footer-col h3')[2].textContent = 'Services';
+                document.querySelectorAll('.footer-col h3')[3].textContent = 'Newsletter';
+                
+                document.querySelectorAll('.footer-links a')[0].textContent = 'Home';
+                document.querySelectorAll('.footer-links a')[1].textContent = 'Features';
+                document.querySelectorAll('.footer-links a')[2].textContent = 'How It Works';
+                document.querySelectorAll('.footer-links a')[3].textContent = 'Packages';
+                document.querySelectorAll('.footer-links a')[4].textContent = 'Contact Us';
+                
+                document.querySelectorAll('.footer-links a')[5].textContent = 'Digital Transformation';
+                document.querySelectorAll('.footer-links a')[6].textContent = 'Artificial Intelligence';
+                document.querySelectorAll('.footer-links a')[7].textContent = 'Data Analysis';
+                document.querySelectorAll('.footer-links a')[8].textContent = 'Government Integration';
+                document.querySelectorAll('.footer-links a')[9].textContent = 'Technical Consultations';
+                
+                document.querySelector('.footer-col p').textContent = 'Subscribe to our newsletter to receive the latest updates and offers.';
+                document.querySelector('.footer-col .form-control').placeholder = 'Your Email';
+                document.querySelector('.footer-col .btn').textContent = 'Subscribe';
+                
+                document.querySelector('.copyright p').textContent = 'All rights reserved &copy; 2025 Watan AI. Designed and programmed by Emirati hands.';
+                
+                const navLinks = document.querySelectorAll('.nav-links a');
+                navLinks[0].textContent = 'Home';
+                navLinks[1].textContent = 'Features';
+                navLinks[2].textContent = 'How It Works';
+                navLinks[3].textContent = 'Packages';
+                navLinks[4].textContent = 'Contact Us';
+            } else {
+                document.body.classList.remove('english');
+                document.querySelector('.language-text').textContent = 'English';
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+                
+                location.reload();
+            }
+        });
+    </script>
+</body>
+</html>
